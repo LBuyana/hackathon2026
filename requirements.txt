@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+websockets
+python-multipart
+pydantic
+python-dotenv
+supabase
+insightface
+opencv-python-headless
+numpy
+Pillow
+onnxruntime
