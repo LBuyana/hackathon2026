@@ -1,0 +1,105 @@
+import React, { useState } from 'react';
+
+const Portfolio = () => {
+  const [activeTab, setActiveTab] = useState('home');
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'home':
+        return (
+          <div className="space-y-8">
+            <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-[#800000]">
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">WELCOME TO MY WEBSITE</h2>
+              <p className="text-lg text-gray-600">
+                Hello! My name is Asange Buyana, I am a first-year student in the Bachelor of Commerce (General) under the Faculty of Commerce and Administration.
+              </p>
+            </div>
+          </div>
+        );
+      case 'history':
+        return (
+          <div className="space-y-8">
+            <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-[#800000]">
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">History and Overview of Walter Sisulu University</h2>
+              <h3 className="text-xl font-semibold text-[#800000] mb-2">Activity 1: History and Timeline</h3>
+              <p className="text-gray-600 mb-4">
+                Walter Sisulu University (WSU) is a comprehensive university in the Eastern Cape, South Africa. It was established in 2005 through the merger of the University of Transkei (UNITRA), Border Technikon, and Eastern Cape Technikon. It honors the legacy of anti-apartheid icon Walter Sisulu.
+              </p>
+              
+              <h3 className="text-xl font-semibold text-[#800000] mb-2 mt-6">Activity 2: Mission, Vision, and Values</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                <div className="bg-gray-50 p-4 rounded border border-gray-200">
+                  <h4 className="font-bold text-lg mb-2">Vision</h4>
+                  <p className="text-sm text-gray-600">An impactful, technology-infused African University.</p>
+                </div>
+                <div className="bg-gray-50 p-4 rounded border border-gray-200">
+                  <h4 className="font-bold text-lg mb-2">Mission</h4>
+                  <p className="text-sm text-gray-600">To respond to societal needs in ethical, scholarly, sustainable, and entrepreneurial ways.</p>
+                </div>
+                <div className="bg-gray-50 p-4 rounded border border-gray-200">
+                  <h4 className="font-bold text-lg mb-2">Values</h4>
+                  <p className="text-sm text-gray-600">Honesty and Integrity, Quality and Excellence, Respect, and Ubuntu.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-100 font-sans">
+      {/* Header Navigation */}
+      <header className="bg-white shadow-sm border-b-4 border-[#cfb53b]">
+        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+            <h1 className="text-2xl font-bold text-[#800000]">Asange Buyana</h1>
+          </div>
+          <nav className="space-x-6">
+            <button 
+              onClick={() => setActiveTab('home')}
+              className={`text-lg font-medium ${activeTab === 'home' ? 'text-[#800000] border-b-2 border-[#800000]' : 'text-gray-600 hover:text-[#800000]'}`}
+            >
+              Home
+            </button>
+            <button 
+              onClick={() => setActiveTab('history')}
+              className={`text-lg font-medium ${activeTab === 'history' ? 'text-[#800000] border-b-2 border-[#800000]' : 'text-gray-600 hover:text-[#800000]'}`}
+            >
+              Reflections: History & Overview
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero Banner */}
+      <div className="bg-[#800000] py-20 text-center relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-black"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4">
+          <h2 className="text-5xl font-extrabold text-white tracking-wider mb-4 shadow-sm">
+            INTSHAYELELO 101
+          </h2>
+          <p className="text-[#cfb53b] text-xl font-semibold">
+            BCom (General) e-Portfolio
+          </p>
+        </div>
+      </div>
+
+      {/* Main Content Area */}
+      <main className="max-w-6xl mx-auto px-4 py-12">
+        {renderContent()}
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-6 mt-12">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <p className="text-sm text-gray-400">© 2026 Asange Buyana - Walter Sisulu University Portfolio</p>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default Portfolio;
